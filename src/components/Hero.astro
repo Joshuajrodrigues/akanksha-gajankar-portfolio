@@ -1,0 +1,45 @@
+---
+import { marked } from 'marked';
+import Button from './Button.astro';
+import siteConfig from '../data/site-config';
+
+const hero = siteConfig.hero;
+---
+
+{
+    (hero?.title || hero?.image?.src || hero?.text || (hero?.actions && hero.actions.length > 0)) && (
+        <section class="w-full flex flex-col gap-8 mb-16 sm:mb-24">
+            {hero.title && <h1 class="text-3xl leading-tight font-serif font-medium sm:text-5xl sm:leading-tight">{hero.title}</h1>}
+
+            {hero.image?.src && (
+                <figure>
+                    <img class="w-full" src={hero.image.src} loading="lazy" decoding="async" alt={hero.image.alt || ''} />
+                    {hero.image.caption && <figcaption class="mt-1.5 text-xs sm:text-sm">{hero.image.caption}</figcaption>}
+                </figure>
+            )}
+
+            {hero.text && (
+                <div
+                    class="max-w-none prose prose-[
+                
+            ] sm:prose-lg uppercase"
+                    set:html={marked.parse(hero.text)}
+                />
+            )}
+            {hero.text2 && <div class="max-w-none text-right  prose prose-dante sm:prose-lg uppercase" set:html={marked.parse(hero.text2)} />}
+            {hero.actions && hero.actions.length > 0 && (
+                <div class="flex flex-wrap gap-4">
+                    <Button>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 2048 2048">
+                            <path fill="currentColor" d="M384 2048v-128h1152v128zm1197-979l-621 626l-621-626l90-90l467 470V0h128v1449l467-470z" />
+                        </svg>
+                        Resume
+                    </Button>
+                    {hero.actions.map((action) => (
+                        <Button href={action.href}>{action.text}</Button>
+                    ))}
+                </div>
+            )}
+        </section>
+    )
+}

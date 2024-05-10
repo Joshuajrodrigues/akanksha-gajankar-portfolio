@@ -1,0 +1,26 @@
+---
+import { marked } from 'marked';
+import siteConfig from '../data/site-config';
+import LottieAnimation from 'astro-transitions-lottie/Lottie.astro';
+import lottie from '../../public/lotties/maui.json';
+---
+
+<header class="w-full max-w-3xl mx-auto mb-12 sm:mb-16 flex justify-between items-center">
+    {
+        siteConfig.logo && siteConfig.logo?.src ? (
+            <a href="/">
+                <img src={siteConfig.logo.src} alt={siteConfig.logo.alt || ''} class="max-h-12" />
+            </a>
+        ) : (
+            <a class="font-serif text-2xl leading-tight font-medium text-theme-foreground sm:text-4xl" href="/" set:html={marked.parse(siteConfig.heading)} />
+        )
+    }
+    {
+        siteConfig?.hero?.video?.src && (
+            <div class=" w-32 md:w-48">
+                <LottieAnimation src={'/lotties/maui.json'} autoplay="visible" />
+            </div>
+        )
+    }
+    {siteConfig.subtitle && <p class="font-serif text-2xl leading-tight font-medium text-theme-foreground sm:text-4xl">{siteConfig.subtitle}</p>}
+</header>
