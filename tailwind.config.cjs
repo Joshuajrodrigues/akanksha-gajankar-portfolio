@@ -12,6 +12,10 @@ module.exports = {
             colors:{
                 peach: '#fab387',
                 mauve:'#cba6f7',
+                teal:'#94e2d5',
+                green:'#a6e3a1',
+                pink:'#f5c2e7',
+                red:'#f38ba8'
             },
             textColor: {
                 main: 'rgb(var(--color-text-main) / <alpha-value>)',
