@@ -12,7 +12,9 @@ import lottie from '../../public/lotties/maui.json';
                 <img src={siteConfig.logo.src} alt={siteConfig.logo.alt || ''} class="max-h-12" />
             </a>
         ) : (
-            <a class="font-serif text-2xl leading-tight font-medium text-theme-foreground sm:text-4xl" href="/" set:html={marked.parse(siteConfig.heading)} />
+            <h1 class=" font-sans bg-gradient-to-br from-peach to-mauve text-transparent bg-clip-text font-black text-8xl leading-tight text-theme-foreground sm:text-4xl">
+                <a href="/" set:html={marked.parse(siteConfig.heading)} />
+            </h1>
         )
     }
     {

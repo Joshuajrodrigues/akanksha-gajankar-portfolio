@@ -9,16 +9,21 @@ module.exports = {
             serif: ['IBM Plex Serif', ...defaultTheme.fontFamily.serif]
         },
         extend: {
+            colors:{
+                peach: '#fab387',
+                mauve:'#cba6f7',
+            },
             textColor: {
-                main: 'rgb(var(--color-text-main) / <alpha-value>)'
+                main: 'rgb(var(--color-text-main) / <alpha-value>)',
             },
             backgroundColor: {
                 main: 'rgb(var(--color-bg-main) / <alpha-value>)',
-                muted: 'rgb(var(--color-bg-muted) / <alpha-value>)'
+                muted: 'rgb(var(--color-bg-muted) / <alpha-value>)',
             },
             borderColor: {
                 main: 'rgb(var(--color-border-main) / <alpha-value>)'
             },
+  
             typography: (theme) => ({
                 dante: {
                     css: {
