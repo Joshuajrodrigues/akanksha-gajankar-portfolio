@@ -20,8 +20,12 @@ import Button from './Button.astro';
                 <section class=" block">
                     {siteConfig?.hero?.actions && siteConfig?.hero.actions.length > 0 && (
                         <div class="flex flex-wrap gap-4">
-                            <Button class={' bg-gradient-to-br from-teal to-green text-black border-none font-normal'}>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 2048 2048">
+                            <Button
+                                class={
+                                    'ease-in duration-500 bg-gradient-to-br from-teal to-green text-black border-none font-normal hover:bg-gradient-to-bl hover:from-green hover:to-teal'
+                                }
+                            >
+                                <svg class="mr-1" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 2048 2048">
                                     <path fill="currentColor" d="M384 2048v-128h1152v128zm1197-979l-621 626l-621-626l90-90l467 470V0h128v1449l467-470z" />
                                 </svg>
                                 <span class="ml-1">Resume</span>
